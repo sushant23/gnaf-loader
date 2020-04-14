@@ -107,7 +107,7 @@ def main():
     create_raw_gnaf_tables(pg_cur, settings)
     populate_raw_gnaf(settings)
     index_raw_gnaf(settings)
-    if settings['primary_foreign_keys']:
+    if True:
         create_primary_foreign_keys(settings)
     else:
         logger.info("\t- Step 6 of 7 : primary & foreign keys NOT created")
@@ -120,16 +120,16 @@ def main():
     logger.info("")
     start_time = datetime.now()
     logger.info("Part 3 of 6 : Start raw admin boundary load : {0}".format(start_time))
-    load_raw_admin_boundaries(pg_cur, settings)
-    prep_admin_bdys(pg_cur, settings)
-    create_admin_bdys_for_analysis(settings)
+    # load_raw_admin_boundaries(pg_cur, settings)
+    # prep_admin_bdys(pg_cur, settings)
+    # create_admin_bdys_for_analysis(settings)
     logger.info("Part 3 of 6 : Raw admin boundaries loaded! : {0}".format(datetime.now() - start_time))
 
     # PART 4 - create flattened and standardised GNAF and Administrative Boundary reference tables
     logger.info("")
-    start_time = datetime.now()
-    logger.info("Part 4 of 6 : Start create reference tables : {0}".format(start_time))
-    create_reference_tables(pg_cur, settings)
+    # start_time = datetime.now()
+    # logger.info("Part 4 of 6 : Start create reference tables : {0}".format(start_time))
+    # create_reference_tables(pg_cur, settings)
     logger.info("Part 4 of 6 : Reference tables created! : {0}".format(datetime.now() - start_time))
 
     # PART 5 - boundary tag GNAF addresses
@@ -139,7 +139,7 @@ def main():
     else:
         start_time = datetime.now()
         logger.info("Part 5 of 6 : Start boundary tagging addresses : {0}".format(start_time))
-        boundary_tag_gnaf(pg_cur, settings)
+        # boundary_tag_gnaf(pg_cur, settings)
         logger.info("Part 5 of 6 : Addresses boundary tagged: {0}".format(datetime.now() - start_time))
 
     # PART 6 - get record counts for QA

@@ -56,14 +56,14 @@ def main():
     pg_cur = pg_conn.cursor()
 
     # add postgis to database (in the public schema) - run this in a try to confirm db user has privileges
-    try:
-        pg_cur.execute("SET search_path = public, pg_catalog; CREATE EXTENSION IF NOT EXISTS postgis")
-    except psycopg2.Error:
-        logger.fatal("Unable to add PostGIS extension\nACTION: Check your Postgres user privileges or PostGIS install")
-        return False
+    # try:
+    #     pg_cur.execute("SET search_path = public, pg_catalog; CREATE EXTENSION IF NOT EXISTS postgis")
+    # except psycopg2.Error:
+    #     logger.fatal("Unable to add PostGIS extension\nACTION: Check your Postgres user privileges or PostGIS install")
+    #     return False
 
     # test if ST_SubDivide exists (only in PostGIS 2.2+). It's used to split boundaries for faster processing
-    psma.check_postgis_version(pg_cur, settings, logger)
+    # psma.check_postgis_version(pg_cur, settings, logger)
 
     # log the settings
 
@@ -146,7 +146,7 @@ def main():
     logger.info("")
     start_time = datetime.now()
     logger.info("Part 6 of 6 : Start row counts : {0}".format(start_time))
-    create_qa_tables(pg_cur, settings)
+    # create_qa_tables(pg_cur, settings)
     logger.info("Part 6 of 6 : Got row counts : {0}".format(datetime.now() - start_time))
 
     # close Postgres connection

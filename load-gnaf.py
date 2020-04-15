@@ -334,7 +334,7 @@ def create_raw_gnaf_tables(pg_cur, settings):
     # set tables to unlogged to speed up the load? (if requested)
     # -- they'll have to be rebuilt using this script again after a system crash --
     if settings['unlogged_tables']:
-        sql = sql.replace("CREATE TABLE ", "CREATE UNLOGGED TABLE ")
+        # sql = sql.replace("CREATE TABLE ", "CREATE UNLOGGED TABLE ")
         unlogged_string = "UNLOGGED "
     else:
         unlogged_string = ""

@@ -254,7 +254,7 @@ def get_settings(args):
     settings['psma_version'] = args.psma_version
     settings['states_to_load'] = args.states
     settings['no_boundary_tag'] = args.no_boundary_tag
-    settings['raw_gnaf_schema'] = 'gnaf-gda2020'
+    settings['raw_gnaf_schema'] = '\"gnaf-gda2020\"'
     settings['raw_admin_bdys_schema'] = args.raw_admin_schema or 'raw_admin_bdys_' + settings['psma_version']
     settings['gnaf_schema'] = args.gnaf_schema or 'gnaf_' + settings['psma_version']
     settings['admin_bdys_schema'] = args.admin_schema or 'admin_bdys_' + settings['psma_version']

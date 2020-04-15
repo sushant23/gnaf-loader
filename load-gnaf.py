@@ -88,15 +88,15 @@ def main():
     if settings['raw_gnaf_schema'] != "public":
         pg_cur.execute("CREATE SCHEMA IF NOT EXISTS {0} AUTHORIZATION {1}"
                        .format(settings['raw_gnaf_schema'], settings['pg_user']))
-    if settings['raw_admin_bdys_schema'] != "public":
-        pg_cur.execute("CREATE SCHEMA IF NOT EXISTS {0} AUTHORIZATION {1}"
-                       .format(settings['raw_admin_bdys_schema'], settings['pg_user']))
-    if settings['admin_bdys_schema'] != "public":
-        pg_cur.execute("CREATE SCHEMA IF NOT EXISTS {0} AUTHORIZATION {1}"
-                       .format(settings['admin_bdys_schema'], settings['pg_user']))
-    if settings['gnaf_schema'] != "public":
-        pg_cur.execute("CREATE SCHEMA IF NOT EXISTS {0} AUTHORIZATION {1}"
-                       .format(settings['gnaf_schema'], settings['pg_user']))
+    # if settings['raw_admin_bdys_schema'] != "public":
+    #     pg_cur.execute("CREATE SCHEMA IF NOT EXISTS {0} AUTHORIZATION {1}"
+    #                    .format(settings['raw_admin_bdys_schema'], settings['pg_user']))
+    # if settings['admin_bdys_schema'] != "public":
+    #     pg_cur.execute("CREATE SCHEMA IF NOT EXISTS {0} AUTHORIZATION {1}"
+    #                    .format(settings['admin_bdys_schema'], settings['pg_user']))
+    # if settings['gnaf_schema'] != "public":
+    #     pg_cur.execute("CREATE SCHEMA IF NOT EXISTS {0} AUTHORIZATION {1}"
+    #                    .format(settings['gnaf_schema'], settings['pg_user']))
     logger.info("Part 1 of 6 : Schemas created! : {0}".format(datetime.now() - start_time))
 
     # PART 2 - load gnaf from PSV files

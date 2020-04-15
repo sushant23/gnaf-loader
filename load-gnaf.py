@@ -311,7 +311,7 @@ def drop_tables_and_vacuum_db(pg_cur, settings):
     # Step 2 of 7 : vacuum database (if requested)
     start_time = datetime.now()
     if settings['vacuum_db']:
-        pg_cur.execute("VACUUM")
+        # pg_cur.execute("VACUUM")
         logger.info("\t- Step 2 of 7 : database vacuumed : {0}".format(datetime.now() - start_time))
     else:
         logger.info("\t- Step 2 of 7 : database NOT vacuumed")
